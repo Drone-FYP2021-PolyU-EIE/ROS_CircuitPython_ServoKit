@@ -1,0 +1,7 @@
+<launch>
+    <!--  node: parameters -->
+
+    <!--  node -->
+    <node pkg="ros_circuitpython_servokit_node" type="ros_circuitpython_servokit_node.py" name="ros_circuitpython_servokit_node" output="screen">
+    </node>
+</launch>
