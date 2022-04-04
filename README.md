@@ -19,7 +19,7 @@ catkin_make --cmake-args \
 ```      
 # Custom ROS Message
 
-# test jetson
+# Test i2c bus on Jetson
 ```bash
 sudo i2cdetect -y -r <i2c bus>
 ```
