@@ -20,6 +20,11 @@ catkin_make --cmake-args \
 # Custom ROS Message
 ## AllServoAngle
 Header + float32 array lenght of 16(0th mean channel 0, etc... )
+```
+rosmsg show ros_circuitpython_servokit_msgs/AllServoAngle
+```
+![image](https://user-images.githubusercontent.com/45313904/161604024-01f4141f-3401-474b-a498-2b43a42c7f23.png)
+
 # Test i2c bus on Jetson
 ```bash
 sudo i2cdetect -y -r <i2c bus>
