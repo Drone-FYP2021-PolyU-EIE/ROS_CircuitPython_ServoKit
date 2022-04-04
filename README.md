@@ -18,7 +18,8 @@ catkin_make --cmake-args \
       -DPYTHON_EXECUTABLE=/usr/bin/python3
 ```      
 # Custom ROS Message
-
+## AllServoAngle
+Header + float32 array lenght of 16(0th mean channel 0, etc... )
 # Test i2c bus on Jetson
 ```bash
 sudo i2cdetect -y -r <i2c bus>
