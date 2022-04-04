@@ -5,6 +5,7 @@ Simple ROS wripper for Adafruit_CircuitPython_ServoKit. We test it in Jetson NX 
 * Python3
 * CircuitPython_ServoKit
 # Install
+[more install detail](https://github.com/Drone-FYP2021-PolyU-EIE/ServoKit/blob/master/README.md)
 ```bash
 git clone https://github.com/Drone-FYP2021-PolyU-EIE/ServoKit.git
 cd ServoKit
