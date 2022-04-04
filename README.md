@@ -23,3 +23,12 @@ catkin_make --cmake-args \
 ```bash
 sudo i2cdetect -y -r <i2c bus>
 ```
+# Common install problem on Jetson
+## "Error:future feature annotations is not defined"
+```bash
+sudo -H pip3 install Adafruit-PlatformDetect==3.19.6
+```
+## "NameError: name 'I2C' is not defined"
+```bash
+sudo -H pip3 install adafruit-circuitpython-typing
+```
