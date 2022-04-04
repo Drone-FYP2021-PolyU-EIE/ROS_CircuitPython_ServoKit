@@ -17,3 +17,8 @@ catkin_make --cmake-args \
       -DPYTHON_EXECUTABLE=/usr/bin/python3
 ```      
 # Custom ROS Message
+
+# test jetson
+```bash
+sudo i2cdetect -y -r <i2c bus>
+```
