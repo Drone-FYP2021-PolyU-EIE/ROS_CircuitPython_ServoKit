@@ -54,7 +54,7 @@ class ros_circuitpython_servokit_node(object):
     
     def callback_servo_input(self,msg):
         self.servoValue= list(msg.all16servoPWM)
-        rospy.loginfo(self.servoValue[0])
+        #rospy.loginfo(self.servoValue[0])
 
 if __name__ == '__main__':
     my_node = ros_circuitpython_servokit_node()
