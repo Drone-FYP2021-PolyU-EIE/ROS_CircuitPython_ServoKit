@@ -1,6 +1,7 @@
 # ROS_CircuitPython_ServoKit
 Simple ROS wripper for Adafruit_CircuitPython_ServoKit. We test it in Jetson NX and AGX. This should also work on pi 4 and other ciruitpython support platform
-# topics
+# ROS Topics
+## Input
 "/servo/angle", AllServoAngle       
 # Prerequisites
 * ROS
