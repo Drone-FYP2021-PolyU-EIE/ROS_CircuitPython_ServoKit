@@ -1,5 +1,8 @@
 # ROS_CircuitPython_ServoKit
-Simple ROS wripper for Adafruit_CircuitPython_ServoKit. We test it in Jetson NX and AGX. This should also work on pi 4 and other ciruitpython support platform 
+Simple ROS wripper for Adafruit_CircuitPython_ServoKit. We test it in Jetson NX and AGX. This should also work on pi 4 and other ciruitpython support platform
+# ROS Topics
+## Input
+`/servo/angle`, AllServoAngle       
 # Prerequisites
 * ROS
 * Python3
@@ -16,7 +19,15 @@ Now cd to your catkin workspace/src
 git clone https://github.com/Drone-FYP2021-PolyU-EIE/ROS_CircuitPython_ServoKit.git
 catkin_make --cmake-args \
       -DPYTHON_EXECUTABLE=/usr/bin/python3
-```      
+```   
+# Launch the Node
+```bash 
+lauchROS_CircuitPython_ServoKit_Node.launch
+```
+## Simulation Mode
+```bash
+roslaunch ros_circuitpython_servokit_node exampleSimMode.launch
+```
 # Custom ROS Message
 ## AllServoAngle
 Header + float32 array lenght of 16(0th mean channel 0, etc... )
