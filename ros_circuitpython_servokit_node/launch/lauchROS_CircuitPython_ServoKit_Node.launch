@@ -1,7 +1,11 @@
 <launch>
     <!--  node: parameters -->
+    <arg name="address" default="0" />
+    <arg name="simMode" default="false" />
 
     <!--  node -->
     <node pkg="ros_circuitpython_servokit_node" type="ros_circuitpython_servokit_node.py" name="ros_circuitpython_servokit_node" output="screen">
+        <param name="address" type="int" value="$(arg address)" />
+        <param name="simMode" type="bool" value="$(arg simMode)" />
     </node>
 </launch>

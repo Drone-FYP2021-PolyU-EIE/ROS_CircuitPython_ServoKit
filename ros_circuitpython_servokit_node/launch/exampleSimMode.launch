@@ -1,0 +1,6 @@
+<launch>
+    <!--simMode example-->
+    <include file="$(find ros_circuitpython_servokit_node)/launch/lauchROS_CircuitPython_ServoKit_Node.launch">
+		<arg name="simMode" value="true"/>
+	</include>
+</launch>

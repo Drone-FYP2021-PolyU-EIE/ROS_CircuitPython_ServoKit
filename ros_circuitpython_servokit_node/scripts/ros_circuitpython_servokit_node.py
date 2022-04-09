@@ -6,10 +6,6 @@ if sys.version_info < (3,0):
     print("Sorry, requires Python 3.x, not Python 2.x")
     sys.exit(1)
 
-# i2c related
-from adafruit_servokit import ServoKit
-import board
-import busio
 import time
 
 # ROS Related
@@ -28,11 +24,23 @@ class ros_circuitpython_servokit_node(object):
         rospy.init_node("node_name", anonymous=True, disable_signals=True)
         self.loop_rate = rospy.Rate(1)
 
-        # I2C
-        rospy.loginfo("[%s]Initializing I2C BUS" % self.node_name)
-        self.i2c_bus0=(busio.I2C(board.SCL, board.SDA))
-        rospy.loginfo("[%s]Done Initializing PCA9685" % self.node_name)
-        self.PCA9685 = ServoKit(channels=16, i2c=self.i2c_bus0)
+        # ROS param
+        self.isSimMode = rospy.get_param('~simMode')
+
+        if not(self.isSimMode):
+            # i2c related
+            try:
+                from adafruit_servokit import ServoKit
+                import board
+                import busio
+            except:
+                rospy.logerr("Servo Node: Have you install CircuitPython ServoKit?")
+            else:
+                # I2C
+                rospy.loginfo("[%s]Initializing I2C BUS" % self.node_name)
+                self.i2c_bus0=(busio.I2C(board.SCL, board.SDA))
+                rospy.loginfo("[%s]Done Initializing PCA9685" % self.node_name)
+                self.PCA9685 = ServoKit(channels=16, i2c=self.i2c_bus0, address=0x40)
         rospy.loginfo("[%s]Done initializing" % self.node_name)
 
         # ROS Topics
@@ -46,7 +54,8 @@ class ros_circuitpython_servokit_node(object):
         #keep the main loop running until
         while not rospy.is_shutdown():
             for i in range(16):
-                self.PCA9685.servo[i].angle=self.servoValue[i]
+                if not(self.isSimMode):
+                    self.PCA9685.servo[i].angle=self.servoValue[i]
                 rospy.loginfo("[%s]%d:%f" % (self.node_name,i,self.servoValue[i]))
 
             self.loop_rate.sleep()
@@ -54,7 +63,7 @@ class ros_circuitpython_servokit_node(object):
     
     def callback_servo_input(self,msg):
         self.servoValue= list(msg.all16servoPWM)
-        rospy.loginfo(self.servoValue[0])
+        #rospy.loginfo(self.servoValue[0])
 
 if __name__ == '__main__':
     my_node = ros_circuitpython_servokit_node()
