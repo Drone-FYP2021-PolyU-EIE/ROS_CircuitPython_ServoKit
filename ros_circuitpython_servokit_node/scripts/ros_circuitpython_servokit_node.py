@@ -21,7 +21,7 @@ class ros_circuitpython_servokit_node(object):
         # numbers are added to the end of the name.
         
         # Ros Node
-        rospy.init_node("node_name", anonymous=True, disable_signals=True)
+        rospy.init_node(self.node_name, anonymous=True, disable_signals=True)
         self.loop_rate = rospy.Rate(1)
 
         # ROS param
