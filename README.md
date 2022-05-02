@@ -3,7 +3,7 @@ Simple ROS wripper for Adafruit_CircuitPython_ServoKit. We test it in Jetson NX 
 # ROS Topics
 |Type|Topic|Data_type|
 |:---:|:---:|:---:|
-|Subscriber| /servo/angle| Custom Message [AllServoAngle](https://github.com/Drone-FYP2021-PolyU-EIE/ROS_CircuitPython_ServoKit)|
+|Subscriber| /servo/angle| Custom Message [AllServoAngle](https://github.com/Drone-FYP2021-PolyU-EIE/ROS_CircuitPython_ServoKit#allservoangle)|
 ## Input
 `/servo/angle`, AllServoAngle       
 # Prerequisites
